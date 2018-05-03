@@ -92,25 +92,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 								<h3>My main app area here</h3>
 								<div id='intro-screen'>
-									<form id='nickname-form' method='POST' action='server/logon'>
-										<label name='nick-name'>Name: </label>
-										<input type='text'   name='nick-name' value='' />
-										<input type='submit' name='action'    value='Submit' />
-									</form>
-								</div>
 
-								<div id="test-form">
-									<form id="validate-form" class="default-form"
-										accept-charset="utf-8" method='POST' action='server/validate'>
-										<input type="hidden" name="action" value="validate" />
-										<input type="text" name="favorite_beverage" value="" placeholder="Favorite restaurant" />
-										<input type="text" name="favorite_restaurant" value=""  placeholder="Favorite beverage" />
-										<select name="gender">
-											<option value="male">Male</option>
-											<option value="female">Female</option>
-										</select>
-										<input type="submit" name="validate" value="Validate" />
-									</form>
+									<form id='product-form' action='server/login' @submit.prevent ='onSubmit'>
+										<label>Product: </label>
+										<input type='text'   name='product-name' v-model = 'product' />
+                                        <br>
+                                        <label > Product Description: </label>
+                                        <input type='text' name='product-description' v-model = 'description' />
+                                        <br>
+                                        <input type='submit' name='product-description' value = 'Submit' />
+                                    </form>
+                                    
 								</div>
 
 							</div>
@@ -151,44 +143,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <section id="scripts">
 		    <!-- This is the key CDN to pull jQuery from -->
 		    <!-- To operate offline we may want these to load from a local source -->
-		    <script src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' defer></script>
+		    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
             <!--
              Load your app core here, while not strictly W3C compliant it guarentees
              that the basic HTML gets loaded and you have something to start
              debugging if any of your code fails.
            -->
-            <script src='scripts/Main.js' type="module" defer></script>
+            <script src='scripts/vueapp.js' type="module" defer></script>
 		</section>
 		
 	</body>
 </html>
-
-<!-- <section>
-	<div id='game-screen'>
-		<h3>My main app area here</h3>
-		<div id='intro-screen'>
-			<form id='nickname-form' method='POST' action='server/logon'>
-				<label name='nick-name'>Name: </label>
-				<input type='text'   name='nick-name' value='' />
-				<input type='submit' name='action'    value='Submit' />
-			</form>
-		</div>
-
-		<div id="test-form">
-			<form id="validate-form" class="default-form"
-				accept-charset="utf-8" method='POST' action='server/validate'>
-				<input type="hidden" name="action" value="validate" />
-				<input type="text" name="favorite_beverage" value="" placeholder="Favorite restaurant" />
-				<input type="text" name="favorite_restaurant" value=""  placeholder="Favorite beverage" />
-				<select name="gender">
-					<option value="male">Male</option>
-					<option value="female">Female</option>
-				</select>
-				<input type="submit" name="validate" value="Validate" />
-			</form>
-		</div>
-
-		<div id='results-area'></div>
-	</div>
-</section> -->

@@ -1,11 +1,11 @@
 /**
- * App Singleton MAIN 
+ * Vue Application 
  * 
- * @copyright: (C) 2014-2016 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
- * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com} 
- * @version: 1.2.0 
+ * @copyright: All Rights Reserved. 
+ * @author: Clinton Ramonida {@link mailto:shenshaw@vfs.com} 
+ * @version: 1.0.0 
  * 
- * @summary: Framework Singleton Class to contain a web app
+ * @summary: A demo of Vue.js 2.0 in OOP 
  * 
  */
 'use strict';
