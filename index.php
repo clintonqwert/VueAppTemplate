@@ -93,7 +93,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 								<h3>My main app area here</h3>
 								<div id='intro-screen'>
 
-									<form id='product-form' action='server/login' @submit.prevent ='onSubmit'>
+									<form id='product-form' @submit.prevent ='onSubmit'>
 										<label>Product: </label>
 										<input type='text'   name='product-name' v-model = 'product' />
                                         <br>
@@ -111,7 +111,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         <div class="grid-results area-child">
                             <!-- Dynamic updates here -->
 							<div>
-								<h3 id='results-area'>Results Area: Dynamic Updates here!</h3>
+								<h3>Results Area: Dynamic Updates here!</h3>
 							</div>
                         </div>
 
@@ -144,7 +144,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		    <!-- This is the key CDN to pull jQuery from -->
 		    <!-- To operate offline we may want these to load from a local source -->
 		    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <!--
              Load your app core here, while not strictly W3C compliant it guarentees
              that the basic HTML gets loaded and you have something to start

@@ -84,12 +84,6 @@ body {
     grid-row: 3/5;
 }
 
-#results-area{
-    position: absolute;
-    overflow:  auto;
-    width: 400px;
-}
-
 
 /* FLEX CONTAINER (PARENT) */
 .flexbox {

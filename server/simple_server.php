@@ -29,7 +29,7 @@ class Server {
                         break;
 
                     case "validate":
-                        $response = $this->check_restaurant();
+                        $response = $this->check_product( $_POST );
                         $response["error_code"] = 0;
                         break;
 
@@ -109,22 +109,15 @@ class Server {
     }
 
 
-    private function check_restaurant() {
+    private function check_product( $request ) {
 
         $response = [];
 
-        $response["favorite_restaurant"] = $_POST["favorite_restaurant"];
-        if ($response["favorite_restaurant"] = "") {
+        $dataArray = $request['data'];
 
-            $response["favorite_restaurant"] = "Joeys";
-        }
+        $response["data"] = $dataArray;
 
-        // Do what you need to do with the info. The following are some examples.
-        $response["favorite_beverage"] = $_POST["favorite_beverage"];
-        if ($response["favorite_beverage"] == ""){
-             $response["favorite_beverage"] = "Pepsi";
-        }
-
+        // Respond to the client with a JSON string containing attrib => value pairs encoded
         return $response;
     }
 
