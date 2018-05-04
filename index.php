@@ -103,16 +103,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                         <input type='submit' name='product-description' value = 'Submit' />
                                     </form>
                                     
+                                    <!-- Dynamic updates here -->
+                                    <div>
+								        <h3>Results Area: Dynamic Updates here!</h3>
+							        </div>
 								</div>
 
 							</div>
 						</div>
 
-                        <div class="grid-results area-child">
-                            <!-- Dynamic updates here -->
-							<div>
-								<h3>Results Area: Dynamic Updates here!</h3>
-							</div>
+                        <div class="grid-results area-child" id='sketch-fab'>
+                            <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+							<br>
+                            <button v-on:click='loadModel'>Click me to load model and show iframe.</button>
+                                <input v-model = "urlId" placeholder="<3D Model URL>">
                         </div>
 
                     </div>
@@ -145,6 +149,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		    <!-- To operate offline we may want these to load from a local source -->
 		    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.1.0.js"></script>
+
             <!--
              Load your app core here, while not strictly W3C compliant it guarentees
              that the basic HTML gets loaded and you have something to start

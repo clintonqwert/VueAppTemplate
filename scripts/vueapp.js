@@ -1,5 +1,40 @@
 new Vue({
+    el:'#sketch-fab',
+    
+    data:{
+        urlId: ''
+    },
 
+    methods:{
+        loadModel(){
+            let iframe = document.querySelector('#api-frame');
+            let client = new Sketchfab( iframe );
+            let model = this.$data.urlId;
+            
+            if(model === ""){
+                model = '20df9d0706da4ba09d7f95f82bb36806';
+            }
+            
+            client.init( model, 
+                {
+                success: function onSuccess( api ){
+                    api.start();
+                    api.addEventListener( 'viewerready', function() {
+                        console.log("Viewer is ready");
+                    });
+                }, 
+                error: function onError() {
+                    console.log('Viewer Error');
+                },
+                autostart: 1,
+                autospin: 0.2
+            });
+        }
+    }
+})
+
+
+new Vue({
     el:'#product-form',
 
     data: {
@@ -23,7 +58,13 @@ new Vue({
                     console.log(data);
             }) 
             //axios.post(url, payload);
-        }   
+        },
+        
+        onload(){
+            let view = new Sketchfab();
+
+            view.sketchFabInit();
+        }
     }
 })
 /* 
