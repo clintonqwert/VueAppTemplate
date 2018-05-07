@@ -41,6 +41,13 @@
           [row5-start] "footcontent" 100px [row5-end];
   }
 
+  .grid-forms{
+    grid-column: 1/9;
+  }
+
+  .grid-results{
+      grid-column: 1/9;
+  }
 
 }
 
@@ -76,6 +83,22 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 320px) 
     .grid-results {
       height: 800px;
     }
+
+    .grid-forms{
+      grid-column: 1/9;
+    }
+  
+    .grid-results{
+      grid-column: 1/9;
+    }
+
+    #api-frame {
+      width: 100%;
+      height: 85%;
+      display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+  }
 }
 
 @media only screen and (min-width: 700px) { 
