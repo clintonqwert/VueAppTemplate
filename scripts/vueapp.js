@@ -45,30 +45,36 @@ new Vue({
     methods:{
         onSubmit(){
             const url = 'server/simple_server.php';
+            let data = {}
             let payload = {
+                method: "POST",
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 action: 'validate',
                 product: this.$data.product,
                 description: this.$data.description
             }
             
+            let params = JSON.stringify(payload);
 
-            fetch(url, payload)
+            fetch(url, params)
                 .then((res) => {
                     let data = res['data'];
                     console.log(data);
             }) 
-            //axios.post(url, payload);
-        },
-        
-        onload(){
-            let view = new Sketchfab();
+            
+            /* //***ajax post with axios***
+            let config = {
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            }
 
-            view.sketchFabInit();
-        }
-    }
-})
-/* 
-const server = "server/simple_server.php";
+            axios.post(url, params, config)
+                .then( (response) =>{
+                    console.log(response.data);
+                }); 
+            */
+
+            /*  //***fetch with await/async***
+            const server = "server/simple_server.php";
             let payload = {
                 action: "validate",
                 data: this.$data
@@ -82,3 +88,12 @@ const server = "server/simple_server.php";
                     console.log(e)
                 }
             } */
+        },
+        
+        onload(){
+            let view = new Sketchfab();
+
+            view.sketchFabInit();
+        }
+    }
+})
