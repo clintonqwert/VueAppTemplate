@@ -10,7 +10,22 @@ new Vue({
 
     methods:{
         onSubmit(){
+            //***ajax post with axios***
             const url = 'server/simple_server.php';
+            const params = new URLSearchParams();
+            params.append('action', 'validate');
+            params.append('product', `${this.$data.product}`);
+            params.append('description', `${this.$data.description}`);
+
+            let config = {
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            }
+            
+            axios.post(url, params, config )
+                .then( (response) =>{
+                    console.log(response.data);
+                });  
+            
             /* let params = {
                 //method: "POST",
                 //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -30,22 +45,6 @@ new Vue({
                     let data = res['data'];
                     console.log(data);
             });  */
-           
-             //***ajax post with axios***
-            const params = new URLSearchParams();
-            params.append('action', 'validate');
-            params.append('product', `${this.$data.product}`);
-            params.append('description', `${this.$data.description}`);
-
-            let config = {
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            }
-            
-            axios.post(url, params, config )
-                .then( (response) =>{
-                    console.log(response.data);
-                });  
-           
             
             /*  //***fetch with await/async***
             const server = "server/simple_server.php";

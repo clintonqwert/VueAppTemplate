@@ -7,7 +7,7 @@
  * 
  * @summary: Framework Singleton Class to contain a web app
  * @description: A-> $http function is implemented in order to follow the standard Adapter pattern
- * based on the work pulished by Mozilla at 
+ * based on the work published by Mozilla at 
  * https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
  * 
  * @usage:
@@ -40,7 +40,7 @@ class HTTPHandler {
     // Method that performs the ajax request
     _ajax( method, url, args ) {
 
-        // Creating a promise (Promise objects are inherant in ES6)
+        // Creating a promise (Promise objects are inherent in ES6)
         let promise = new Promise( ( resolve, reject ) => {
 
             // Instantiates the XMLHttpRequest
@@ -63,7 +63,7 @@ class HTTPHandler {
             client.open( method, uri );
             client.send();
 
-            // Sucess callback
+            // Success callback
             client.onload = function() {
                 
                 if (this.status >= 200 && this.status < 300) {

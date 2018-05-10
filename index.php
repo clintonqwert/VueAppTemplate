@@ -101,12 +101,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                         <input type='text' name='product-description' v-model = 'description' />
                                         <br>
                                         <input type='submit' name='product-description' value = 'Submit' />
+                                        
+                                        <!-- Dynamic updates here -->
+                                        <div>
+                                            <h3>Results Area: Dynamic Updates here!</h3>
+                                        </div>
                                     </form>
                                     
-                                    <!-- Dynamic updates here -->
-                                    <div>
-								        <h3>Results Area: Dynamic Updates here!</h3>
-							        </div>
 								</div>
 
 							</div>
