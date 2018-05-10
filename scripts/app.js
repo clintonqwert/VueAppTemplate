@@ -1,110 +1,141 @@
-/*
-Title: Application JS.
-
-Created on Mon Feb 19 2018.
-
-Author: Clinton Jay Ramonida.
-
-In cooperation with my Mentor - Scott Henshaw. 
-
-Copyright (c) 2018.
-All Rights Reserved.
+/**
+ * Vue Application 
+ * 
+ * @copyright: All Rights Reserved. 
+ * @author: Clinton Ramonida {@link mailto:shenshaw@vfs.com} 
+ * @version: 1.0.0 
+ * 
+ * @summary: A demo of Vue.js 2.0 in OOP 
+ * 
  */
 'use strict';
 
-const SIXTY_FPS = 1000 / 60;
+// Introduce a "namespace"
+var vfs = {	
+	__private__: new WeakMap()
+};
 
+
+// Constants
+const SECONDS_AS_MS = 1000;   
+const TARGET_FPS = 60;
+const TARGET_MS_PER_TICK = SECONDS_AS_MS / TARGET_FPS;
+const UPDATE_MIN_MS = 2000;
+
+
+// Define the App Controller
 export class App {
 
-    // constructor for new App's, note use of initializer in constructor parameters
-	constructor( opt1 = null ) {	    
-	    /*
-	     * use of this. reference in the constructor tells us the attributes
-	     * defined are public.  All class members are.
-	     * 
-	     * convention says if we prefix the name with an underscore, other devs
-	     * will understand that we mean this to be private data.
-	     * 
-	     */
-	    this._privateData = {
-	        
-            done:     false,
-            counter:  0,
-            interval: null
-	    };
-	    	    
-	    /*
-	     * Delete this variable, its just here to show a variable scoped
-	     * to the function level (constructor in this case).  Its available for use 
-	     * in the event handler below 
-	     */ 
-        var deleteMe = true;	    
-	    
-        /*
-        *  Define the Event handlers for the app
-        */
-	    document.querySelector('#stop-button')            
-	        .addEventListener('click', ( event ) => {
-	            // Note use of the "fat arrow" function, preserving the "this" reference
-	            
-	            // variable scoped to the block, not visible outside the {} its defined within
-	            // OK this is not very useful, lets clean up...
-                let my = this.my; 
-                
-                my.counter = 0;
-                
-            	// stop the main event loop if applicable
-            	window.clearInterval( my.interval );
+    constructor() {
+        // the local object contains all the private members used in this class             
+        this['private'] = {
+            data:    new WeakMap(),
+            members: ( key, value ) => {
+                if (value != undefined) 
+                    this.private.data.set( key, value );
+                return this.private.data.get( key );
             }
-        );
-
-        document.querySelector('#start-button')            
-            .addEventListener('click', ( event ) => {
-                this.run();
-            }
-        );
-	}	
-
-	
-    /*
-     *  Sample getter, can be used like a property  so my.propertyName
-     *  
-     *  Now this is public so its possible others can use this to get to 
-     *  our private data; however it enhances readability over embedding the 
-     *  guts of the getter in every method.
-     *  
-     *  and
-     *  
-     *  we can pseudo hide private data if we want.
-     *    
-     */
-    get my() { return this._privateData; }
-	
-	
-    update() {
-        // Update the app/model/simulation here
-        this.my.done = true;
-    }
-
-    
-    render() {
-        // Refresh the view - canvas and dom elements, etc from here.             
-        this.my.counter++;
-        if (this.my.counter > 1000)
-            this.my.counter = 0;
+        };
         
-        // Use backtick quotes to get template literals to work
-        document.querySelector('#results-area').innerHTML = `Counting ${this.my.counter}`;
-    }
-    
+        // Do some initialization of the member variables for the app
+        let my = this.private.members( this, {
 
-    run() {
-        // Entry point, create a nw app, then tell it to run itself
-		this.my.interval = window.setInterval( () => {
+            done:   false,
+            userId: 0
+	    });
+	    
+        // Define the Event handlers for the app
+        $('#nickname-form').on('submit', ( event ) => {
+            
+            event.preventDefault();
+            
+            // Do your thing here when the user presses the submit button on this form.           
+            let us_requestParams = $(event.target).serialize();            
+            $.post('server/login/', us_requestParams)
+                .then( ( data ) => {
+                    
+                    // this callback is triggered WHEN we get a response                        
+                    var response = $.parseJSON( data );
+                    
+                    if (!response.error) {
+                        
+                        my.userId = response.id;
+                        // Use an ES6 trick to parameterize a string
+                        $('#results-area').html(`Welcome ${response.nick-name}, ${response.msg} <br/>`);
+                    }
+                });
+        });
+        
+        $("#validate-form").on('submit', ( event ) => {            
+            /*
+             Note the calls in the handler MUST use the app class to 
+             reference the post/response calls so that they can be 
+             resolved at run time
+             */
+            event.preventDefault();
+            
+            let us_requestParams = $(event.target).serialize();
+            
+            // Note: the trailing slash IS important
+            $.post( "server/validate/", us_requestParams )                
+                .then( ( data ) => { 
+                    
+                    // this callback is triggered WHEN we get a response                        
+                    let response = $.parseJSON( data );
+                    
+                    // compose the view markup based on JSON data we recieved
+                    let markup = "Favorite beverage: " + response.favorite_beverage;
+                    markup += "<br />Favorite restaurant: " + response.favorite_restaurant;
+                    markup += "<br />Gender: " + response.gender;
+                    markup += "<br />JSON: " + response.json;
+            
+                    // Display the markup in the result section
+                    $("#results-area").html( markup );
+            
+                    // Pop an alert to let the user know that the result is computed
+                    console.log(`Form submitted successfully.\nReturned json: ${response.json}` );                    
+                });
+            return false;
+        });
+	}	
+    
+    
+	run() {
+        // Run the app
+	    // One way to make private things easier to read as members
+        let my = this.private.members( this );
+				
+		while (!my.done) {
 			
-			this.update();			
-			this.render();	
+			this.updateData();			
+			this.refreshView();			
 			
-		}, SIXTY_FPS );
-	}    	
-}
+		}
+	};    	
+	
+	
+	updateData() {
+        // Update the app/simulation model
+    	// is the app finished running?
+    	let my = this.private.members( this );
+    	my.done = true;
+    }
+        
+	
+    refreshView() { 
+        // Refresh the view - canvas and dom elements
+    }        
+	
+}  // Run the unnamed function and assign the results to app for use.
+
+
+// ===================================================================
+// MAIN
+// Define the set of private methods that you want to make public and return
+// them
+$(document).ready( function() {
+
+    let app = new App();
+    app.run();
+
+});
