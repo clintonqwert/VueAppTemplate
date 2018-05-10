@@ -150,7 +150,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.1.0.js"></script>
-
+            
             <!--
              Load your app core here, while not strictly W3C compliant it guarentees
              that the basic HTML gets loaded and you have something to start

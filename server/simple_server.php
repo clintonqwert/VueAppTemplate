@@ -1,48 +1,41 @@
 <?php
 /** ===============================================================================================
  * AJAX Action handler class
- * @author: Scott Henshaw
+ * @author: Scott Henshawe
  * @copyright: 2015 Kibble Games Inc, in cooperation with VFS
  *
  */
-class Server {
+
+// include('ajax_server.php');   // If you want to modify the ajax server and subclass from it
+
+class Server /* extends ajax_server */ {
 
     private $debug_mode = TRUE;
 
     public function __construct() {
 
-        $response = $this->is_error( 101, "Not an AJAX request." );
-        if ($this->is_ajax()) {
+        if (isset($_POST["action"]) && !empty($_POST["action"])) { //Checks if action value exists
 
-            $response = $this->is_error( 102, "No action specified." );
-            //Checks if action value exists
-            if (isset($_POST["action"]) && !empty($_POST["action"])) {
+            $action = $_POST["action"];   // Get the action requested, make these up as needed
 
-                // Get the action requested
-                $action = $_POST["action"];
+            switch( $action ) {     //Switch case for value of action
+                case "submit":
+                    $response = $this->do_submit( $_POST );
+                    break;
 
-                //Switch case for value of action, make these up as needed
-                switch( $action ) {
-                    case "logon":
-                        $response = $this->user_logon( $_POST );
-                        $response["error_code"] = 0;
-                        break;
+                case "validate":
+                    $response = $this->do_validate( $_POST );
+                    break;
 
-                    case "validate":
-                        $response = $this->check_product( $_POST );
-                        $response["error_code"] = 0;
-                        break;
-
-                    default:
-                        $response = $this->is_error( 103, "Invalid action." );
-                        break;
-                }
+                default:
+                    $response = $this->is_error( "Error: 101 - Invalid action." );
+                    break;
             }
-        }
 
-        // Respond to the client with a JSON string containing attrib => value pairs encoded
-        echo json_encode( $response );
-        return 0;
+            echo json_encode( $response );
+
+            return 0;
+        }
     }
 
 
@@ -56,14 +49,13 @@ class Server {
      * When we encounter an error the handler should call is error with a message and hand that back
      * as a response to the client
      */
-    private function is_error( $error_code, $error_msg ) {
+    private function is_error( $error_msg ) {
 
         // Create a response array (attrib => value) with the origingal post params to start
         $response = $_POST;
 
         // Add our error message
-        $response["error_code"] = $error_code;
-        $response["error"] = "Error " . $error_code . " - " . $error_msg;
+        $response["error"] = $error_msg;
 
         // convert the whole response to a JSON string, then add that string
         // as another element to the return message
@@ -78,76 +70,27 @@ class Server {
         return $response;
     }
 
-    private function user_logon( $request ) {
-        // The 'action' requested is named for the folder this server lives in
 
-        $username = $request ['name'];
-        $passwd = $request ['passwd'];
-
-        // Authenticate with username and password
-        // Here is the actual worker function, this is where you do your server sode processing and
-        // then generate a json data packet to return.
-
-        // Here is what we will send back (echo) to the person that called us.
-        // fill this dictionary with attribute => value pairs, then
-        // encode as a JSON string, then
-        // echo back to caller
-        $response = [ ];
-
-        // Do what you need to do with the info. The following are some examples.
-        // This is the real set of actual things we use
-        $response ["error"] = - 1;
-        if ($_POST ["nick-name"] == "") {
-            $response ["nick-name"] = "John Doe";
-        }
-        $response ["nick-name"] = $_POST ["nick-name"];
-        $response ["id"] = password_hash ( $passwd, PASSWORD_DEFAULT );
-        $response ["msg"] = "You are logged in " . $response ["nick-name"];
-        $response ["error"] = 0;
-
-        return $response;
-    }
-
-
-    private function check_product( $request ) {
+    private function do_validate( $request ) {
 
         $response = [];
 
-        $dataArray = $request['data'];
+        $product = $request['product'];
+        $description = $request['description'];
 
-        $response["data"] = $dataArray;
+        $response["data"] = $product;
 
         // Respond to the client with a JSON string containing attrib => value pairs encoded
         return $response;
     }
 
 
-    // Here is the actual worker function, this is where you do your server sode processing and
-    // then generate a json data packet to return.
-    //
-    private function update_restaurant() {
+    private function do_submit( $request ) {
 
         $response = [];
 
-        $response["favorite_beverage"] = $_POST["favorite_beverage"];
-
-        // Do what you need to do with the info. The following are some examples.
-        if ($response["favorite_beverage"] == ""){
-             $response["favorite_beverage"] = "Coke";
-        }
-
-        $response["favorite_restaurant"] = "McDonald's";
-
-
-
-        if ($this->debug_mode) {
-
-            $response["json"] = json_encode( $response );
-        }
-
         // Respond to the client with a JSON string containing attrib => value pairs encoded
-        return json_encode( $response );
-
+        return $response;
     }
 }
 

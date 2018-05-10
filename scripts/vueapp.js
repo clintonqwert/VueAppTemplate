@@ -11,40 +11,41 @@ new Vue({
     methods:{
         onSubmit(){
             const url = 'server/simple_server.php';
-            let data = {}
-            let payload = {
+            /* let params = {
                 //method: "POST",
                 //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 action: 'validate',
                 product: this.$data.product,
                 description: this.$data.description
-            }
-            
-            let params = JSON.stringify(payload);
+            } */
 
-            HTTP.post( url, payload)
+            /* HTTP.post( url, params)
                 .then( ( data ) => { 
                     console.log(1, 'success', JSON.parse( data )); 
-            });
+            }); */
 
-            /* 
-            fetch(url, params)
+            
+            /* fetch(url, params)
                 .then((res) => {
                     let data = res['data'];
                     console.log(data);
-            }); 
-            */
-            
-             /* //***ajax post with axios***
+            });  */
+           
+             //***ajax post with axios***
+            const params = new URLSearchParams();
+            params.append('action', 'validate');
+            params.append('product', `${this.$data.product}`);
+            params.append('description', `${this.$data.description}`);
+
             let config = {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }
-
-            axios.post(url, params, config)
+            
+            axios.post(url, params, config )
                 .then( (response) =>{
                     console.log(response.data);
                 });  
-            */
+           
             
             /*  //***fetch with await/async***
             const server = "server/simple_server.php";
