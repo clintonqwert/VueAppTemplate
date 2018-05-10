@@ -116,7 +116,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         <div class="grid-results area-child" id='sketch-fab'>
                             <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 							<br>
-                            <button v-on:click='loadModel'>Click me to load model and show iframe.</button>
+                            <button id='model' v-on:click='loadModel'>Click me to load model and show iframe.</button>
                                 <input v-model = "urlId" placeholder="<3D Model URL>">
                         </div>
 
