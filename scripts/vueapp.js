@@ -6,7 +6,8 @@ new Vue({
 
     data: {
         product: '',
-        description: ''
+        description: '',
+        response: ''
     },
 
     methods:{
@@ -24,7 +25,8 @@ new Vue({
             
             axios.post(url, params, config )
                 .then( (response) =>{
-                    console.log(response.data);
+                    this.$data.response = response.data ;
+                    
                 });  
         },
         

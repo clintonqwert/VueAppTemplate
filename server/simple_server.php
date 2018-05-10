@@ -73,13 +73,13 @@ class Server /* extends ajax_server */ {
 
     private function do_validate( $request ) {
 
-        $response = [];
+        $response = $request['product'];
 
-        $product = $request['product'];
-        $description = $request['description'];
+        //$product = $request['product'];
+        //$description = $request['description'];
 
-        $response["data"] = $product;
-
+        //$response["data"] = $product;
+        
         // Respond to the client with a JSON string containing attrib => value pairs encoded
         return $response;
     }
