@@ -1,5 +1,6 @@
 import { HTTP } from "../scripts/http.js";
 
+//Our 'product-form' root that handles Ajax call to our own simple PHP server. 
 new Vue({
     el:'#product-form',
 
@@ -25,42 +26,6 @@ new Vue({
                 .then( (response) =>{
                     console.log(response.data);
                 });  
-            
-            /* let params = {
-                //method: "POST",
-                //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                action: 'validate',
-                product: this.$data.product,
-                description: this.$data.description
-            } */
-
-            /* HTTP.post( url, params)
-                .then( ( data ) => { 
-                    console.log(1, 'success', JSON.parse( data )); 
-            }); */
-
-            
-            /* fetch(url, params)
-                .then((res) => {
-                    let data = res['data'];
-                    console.log(data);
-            });  */
-            
-            /*  //***fetch with await/async***
-            const server = "server/simple_server.php";
-            let payload = {
-                action: "validate",
-                data: this.$data
-            }
-            
-            return async dispatch =>{
-                try {
-                    const response = await fetch(server, payload)
-                    console.log(response)
-                }catch (e) {
-                    console.log(e)
-                }
-            } */
         },
         
         onload(){
@@ -71,6 +36,7 @@ new Vue({
     }
 })
 
+//Sketch-fab Root that handles our sketchfab view api
 new Vue({
     el:'#sketch-fab',
     
@@ -105,3 +71,40 @@ new Vue({
         }
     }
 })
+
+/* ***Few ways of posting an Ajax*** */
+/* let params = {
+    //method: "POST",
+    //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    action: 'validate',
+    product: this.$data.product,
+    description: this.$data.description
+} */
+
+/* HTTP.post( url, params)
+    .then( ( data ) => { 
+        console.log(1, 'success', JSON.parse( data )); 
+}); */
+
+
+/* fetch(url, params)
+    .then((res) => {
+        let data = res['data'];
+        console.log(data);
+});  */
+
+/*  //***fetch with await/async***
+const server = "server/simple_server.php";
+let payload = {
+    action: "validate",
+    data: this.$data
+}
+
+return async dispatch =>{
+    try {
+        const response = await fetch(server, payload)
+        console.log(response)
+    }catch (e) {
+        console.log(e)
+    }
+} */
