@@ -73,7 +73,7 @@ class Server /* extends ajax_server */ {
 
     private function do_validate( $request ) {
 
-        $response = $request['product'];
+        $response = "The Product: " . $request['product'] . ". Description: " . $request['description'];
 
         //$product = $request['product'];
         //$description = $request['description'];
