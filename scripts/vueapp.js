@@ -1,4 +1,13 @@
-import { HTTP } from "../scripts/http.js";
+/*
+Title: vueapp.
+
+Created on Mon May 3 2018.
+
+Author: Clinton Jay Ramonida. 
+
+Copyright (c) 2018.
+All Rights Reserved.
+ */
 
 //Our 'product-form' root that handles Ajax call to our own simple PHP server. 
 new Vue({
@@ -73,6 +82,9 @@ new Vue({
 })
 
 /* ***Few ways of posting an Ajax*** */
+
+//import { HTTP } from "../scripts/http.js";
+
 /* let params = {
     //method: "POST",
     //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
