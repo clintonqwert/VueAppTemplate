@@ -2,15 +2,15 @@ import { HTTP } from "../scripts/http.js";
 
 //Our 'product-form' root that handles Ajax call to our own simple PHP server. 
 new Vue({
-    el:'#product-form',
+    el:'#product-form', //the "id" that bind this root to our html. 
 
-    data: {
+    data: { // "data:" is a vue object and is the model/view model(v-model) for this particular "root"
         product: '',
         description: '',
         response: ''
     },
 
-    methods:{
+    methods:{ // "methods: " is a vue object that can be access in our html (@submit.prevent ='onSubmit')
         onSubmit(){
             //***ajax post with axios***
             const url = 'server/simple_server.php';
@@ -28,12 +28,10 @@ new Vue({
                     this.$data.response = response.data ;
                     
                 });  
-        },
-        
-        onload(){
-            let view = new Sketchfab();
+        }, //a comma after every method
 
-            view.sketchFabInit();
+        foo(){
+
         }
     }
 })
@@ -42,7 +40,7 @@ new Vue({
 new Vue({
     el:'#sketch-fab',
     
-    data:{
+    data:{ 
         urlId: ''
     },
 
