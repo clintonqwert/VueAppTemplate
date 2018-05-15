@@ -9,6 +9,10 @@ Copyright (c) 2018.
 All Rights Reserved.
  */
 
+ import { COMPO } from "../scripts/vuecomponent.js";
+
+ new Vue({ el: '#components-demo' })
+
 //Our 'product-form' root that handles Ajax call to our own simple PHP server. 
 new Vue({
     el:'#product-form', //the "id" that bind this root to our html. 

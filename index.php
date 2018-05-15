@@ -107,7 +107,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                             <h3>Results Area: Dynamic Updates here!</h3>
                                             <p v-text = '$data.response'></p>
                                         </div>
+                                        
                                     </form>
+                                    
+                                    <div id="components-demo">
+                                        <button-name></button-name>
+                                        <button-name></button-name>
+                                        <button-name></button-name>
+                                    </div>
+ 
                                     
 								</div>
 
