@@ -11,7 +11,7 @@ Copyright (c) 2018.
 All Rights Reserved.
 
  */
-
+'use strict';
 class SidebarComponent {
 
     constructor(){

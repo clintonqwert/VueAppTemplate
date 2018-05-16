@@ -11,6 +11,7 @@ Copyright (c) 2018.
 All Rights Reserved.
 
  */
+'use strict';
 
 import { HEADER } from '../components/Header.js'
 import { NAVBAR } from '../components/Navbar.js'

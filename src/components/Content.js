@@ -11,7 +11,9 @@ Copyright (c) 2018.
 All Rights Reserved.
 
  */
+'use strict';
 
+import { NAMEBTN } from "../components/sub-components/ButtonName.js";
 
 class ContentComponent {
 
@@ -40,7 +42,7 @@ class ContentComponent {
 						<div class="grid-forms area-child">
 							<div id='game-screen'>
 
-								<h3>My main app area here</h3>
+								<h3>{{ form }}</h3>
 								<div id='intro-screen'>
                                     
 									<form id='product-form' @submit.prevent ='onSubmit'>
@@ -60,13 +62,12 @@ class ContentComponent {
                                         
                                     </form>
                                     
-                                    <div id="components-demo">
-                                        <button-name></button-name>
-                                        <button-name></button-name>
-                                        <button-name></button-name>
-                                    </div>
- 
                                     
+                                    <button-name></button-name>
+                                    <button-name></button-name>
+                                    
+                                    
+ 
 								</div>
 
 							</div>
@@ -88,7 +89,7 @@ class ContentComponent {
     
             data(){
                 return{
-                    
+                    form: "Form!"
                 }
             }
         });

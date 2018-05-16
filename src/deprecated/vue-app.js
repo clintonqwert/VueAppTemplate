@@ -9,7 +9,7 @@ Copyright (c) 2018.
 All Rights Reserved.
  */
 
-import { COMPO } from "../components/partials/vuecomponent.js";
+import { NAMEBTN } from "../components/sub-components/ButtonName.js";
 
 export class VueApp {
     constructor(){

@@ -1,9 +1,14 @@
 // Define a new component called button-counter
-class ButtonPartials {
+class ButtonSubCompo {
     constructor() {
         
         Vue.component('button-name', {
-            template: '<p>Hey there, I am {{ name }}. <button v-on:click="changeName">Change Name</button></p>',
+            template: 
+            `
+            <p>Hey there, I am {{ name }}. 
+                <button v-on:click="changeName">Change Name</button>
+            </p>
+            `,
 
             data() {
                 return {
@@ -14,10 +19,6 @@ class ButtonPartials {
             methods: {
                 changeName () {
                     this.name = "Ton";
-                },
-
-                foo(){
-
                 }
             }
         })
@@ -25,4 +26,4 @@ class ButtonPartials {
     }
 }
 
-export const COMPO = new ButtonPartials();
+export const NAMEBTN = new ButtonSubCompo();

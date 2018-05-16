@@ -11,7 +11,7 @@ Copyright (c) 2018.
 All Rights Reserved.
 
  */
-
+'use strict';
 
 class HeaderComponent {
 
@@ -20,13 +20,13 @@ class HeaderComponent {
         Vue.component("app-header", {
             template: 
             `
-                <header id="header-wrapper" class="grid-header area">
-                    <div id="header-container" class="header flexbox">
-                        <div class="flexitem">
-                            <h1>{{ title }}</h1>
-                        </div>
+            <header id="header-wrapper" class="grid-header area">
+                <div id="header-container" class="header flexbox">
+                    <div class="flexitem">
+                        <h1>{{ title }}</h1>
                     </div>
-                </header>
+                </div>
+            </header>
             `,
     
             data(){
