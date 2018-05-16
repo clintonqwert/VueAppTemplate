@@ -166,7 +166,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
              that the basic HTML gets loaded and you have something to start
              debugging if any of your code fails.
            -->
-            <script src='scripts/vueapp.js' type="module" defer></script>
+            <!-- <script src='scripts/vueapp.js' type="module" defer></script> -->
+            <script type="module" src='scripts/main.js' defer></script>
 		</section>
 		
 	</body>

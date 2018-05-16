@@ -11,7 +11,24 @@ All Rights Reserved.
 
  import { COMPO } from "../scripts/vuecomponent.js";
 
- new Vue({ el: '#components-demo' })
+export class VueApp {
+    constructor(){
+        
+        this.test();
+
+        this.vm = {
+            
+        }
+    }
+
+    test(){
+        new Vue({ el: '#components-demo' });
+    }
+
+
+}
+
+ 
 
 //Our 'product-form' root that handles Ajax call to our own simple PHP server. 
 new Vue({
@@ -25,7 +42,7 @@ new Vue({
 
     methods:{ // "methods: " is a vue object that can be access in our html (@submit.prevent ='onSubmit')
         onSubmit(){
-            //***ajax post with axios***
+            //  ***ajax post with axios***
             const url = 'server/simple_server.php';
             const params = new URLSearchParams();
             params.append('action', 'validate');
