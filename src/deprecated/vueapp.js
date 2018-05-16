@@ -10,19 +10,28 @@ All Rights Reserved.
  */
 
 import { COMPO } from "../scripts/vuecomponent.js";
+import { APP } from "../App.js";
 
 export class VueApp {
     constructor(){
         
         this.test();
+        APP.init();
+
 
         this.vm = {
             
         }
     }
 
+    demo(){
+        APP.vueAppInit();
+    }
+
     test(){
-        new Vue({ el: '#components-demo' });
+        new Vue({ 
+            el: '#components-demo' 
+        });
     }
 
 
@@ -101,3 +110,43 @@ new Vue({
         }
     }
 })
+
+/* ***Few ways of posting an Ajax*** */
+
+//import { HTTP } from "../scripts/http.js";
+
+/* let params = {
+    //method: "POST",
+    //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    action: 'validate',
+    product: this.$data.product,
+    description: this.$data.description
+} */
+
+/* HTTP.post( url, params)
+    .then( ( data ) => { 
+        console.log(1, 'success', JSON.parse( data )); 
+}); */
+
+
+/* fetch(url, params)
+    .then((res) => {
+        let data = res['data'];
+        console.log(data);
+});  */
+
+/*  //***fetch with await/async***
+const server = "server/simple_server.php";
+let payload = {
+    action: "validate",
+    data: this.$data
+}
+
+return async dispatch =>{
+    try {
+        const response = await fetch(server, payload)
+        console.log(response)
+    }catch (e) {
+        console.log(e)
+    }
+} */

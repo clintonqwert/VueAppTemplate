@@ -1,5 +1,5 @@
 // Define a new component called button-counter
-class VueCompo {
+class ButtonPartials {
     constructor() {
         
         Vue.component('button-name', {
@@ -25,4 +25,4 @@ class VueCompo {
     }
 }
 
-export const COMPO = new VueCompo();
+export const COMPO = new ButtonPartials();

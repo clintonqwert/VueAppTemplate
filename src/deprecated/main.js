@@ -14,8 +14,9 @@ All Rights Reserved.
 'use strict';
  
 //Import all the necessary scripts here
-import { VueApp } from 'vue-app.js';
+import { VueApp } from './vueapp.js';
 
 document.addEventListener('DOMContentLoaded', ( event ) => {
+
     let app = new VueApp();
 });
