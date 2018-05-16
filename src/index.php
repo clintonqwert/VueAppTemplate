@@ -27,10 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
         
 	    <!-- Base style sheet add your default styles here-->
-        <link rel='stylesheet' href='css/style.css'>
+        <link rel='stylesheet' href='assets/css/style.css'>
 
         <!-- Media Queries -->
-        <link rel='stylesheet' href='css/media.css'>
+        <link rel='stylesheet' href='assets/css/media.css'>
 
         <!-- Add local styles here -->
         <style type="text/css"></style>
@@ -45,7 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -->
     <body>
         <!-- Grid Layout -->
-        <div id="main-wrapper" class="grid-frame">
+        <div id="app" class="grid-frame">
+            <!-- Header -->
+            <app-header></app-header>
 
             <!-- Nav Bar -->
             <nav id="navigation-wrapper" class="grid-nav area">
@@ -60,14 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 </div>
             </nav>
 
-            <!-- Header -->
-            <header id="header-wrapper" class="grid-header area">
-                <div id="header-container" class="header flexbox">
-                    <div class="flexitem">
-                        <h1>HEADER</h1>
-                    </div>
-                </div>
-            </header>
+            
 
             <!-- The Content -->
             <main id="content-wrapper" class="grid-content area">

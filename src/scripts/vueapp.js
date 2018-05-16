@@ -9,20 +9,29 @@ Copyright (c) 2018.
 All Rights Reserved.
  */
 
- import { COMPO } from "../scripts/vuecomponent.js";
+import { COMPO } from "../scripts/vuecomponent.js";
+import { APP } from "../App.js";
 
 export class VueApp {
     constructor(){
         
         this.test();
+        //APP.vueAppInit();
+
 
         this.vm = {
             
         }
     }
 
+    demo(){
+        APP.vueAppInit();
+    }
+
     test(){
-        new Vue({ el: '#components-demo' });
+        new Vue({ 
+            el: '#components-demo' 
+        });
     }
 
 

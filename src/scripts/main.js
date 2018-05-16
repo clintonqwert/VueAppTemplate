@@ -19,6 +19,4 @@ import { VueApp } from './vueapp.js';
 document.addEventListener('DOMContentLoaded', ( event ) => {
 
     let app = new VueApp();
-    // app.run();
-
 });
