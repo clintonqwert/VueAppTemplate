@@ -195,7 +195,7 @@ h3{ /* not a flex item */
         
 #api-frame {
     width: 90%;
-    height: 80%;
+    height: 200px;
     display: block;
     margin: 0 auto;
     margin-top: 10px;
