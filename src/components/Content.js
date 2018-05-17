@@ -30,7 +30,7 @@ class ContentComponent {
                     <!-- Add your HTML5 tags here to structure your app's UI -->
 
                     <div class="flexitem">
-                        <h2>THE MAIN CONTENT</h2>
+                        <h2>{{ title }}</h2>
                     </div>
 
                     <!-- Added a spacer between(main content header and results gridbox) two flex items -->
@@ -51,7 +51,6 @@ class ContentComponent {
 									<product-form></product-form>
                                     
                                     <button-name></button-name>
-                                    <button-name></button-name>
                                     
 								</div>
 
@@ -71,7 +70,18 @@ class ContentComponent {
     
             data(){
                 return{
-                    form: "Form!"
+                    title: 'CONTENT',
+                    form: 'PRODUCTS DEMO FORM'
+                }
+            },
+
+            methods: {
+                myFunc () {
+
+                }, 
+                
+                fooFunc() {
+
                 }
             }
         });
@@ -79,4 +89,4 @@ class ContentComponent {
     }
 }
 
-export const CONTENT = new ContentComponent();
+export const CONTENT = new ContentComponent(); //registered in MainComponent.js

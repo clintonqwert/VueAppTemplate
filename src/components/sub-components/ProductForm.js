@@ -30,15 +30,16 @@ class ProductFormSubCompo {
                 
                 <!-- Dynamic updates here -->
                 <div>
-                    <h3>Results Area: Dynamic Updates here!</h3>
+                    <h3>{{ title }}</h3>
                     <p v-text = '$data.response'></p>
                 </div>
                 
             </form>
             `,
 
-            data() {
+            data() { 
                 return {
+                    title: 'PRODUCTS FORM Results Area: ',
                     product: '',
                     description: '',
                     response: ''
@@ -70,4 +71,4 @@ class ProductFormSubCompo {
     }
 }
 
-export const PRODUCTFORM = new ProductFormSubCompo();
+export const PRODUCTFORM = new ProductFormSubCompo(); //import and register this const to whichever component

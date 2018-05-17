@@ -22,7 +22,7 @@ class FooterComponent {
             <footer id="footer-wrapper" class="grid-foot area">
                 <div id="footer-container" class="footer flexbox">
                     <div class="flexitem">
-                        <h1>FOOTER</h1>
+                        <h1>{{ title }}</h1>
                     </div>
                 </div>
             </footer>
@@ -30,7 +30,17 @@ class FooterComponent {
     
             data(){
                 return{
-                    
+                    title: 'FOOTER'
+                }
+            },
+            
+            methods: {
+                myFunc () {
+
+                }, 
+                
+                fooFunc() {
+
                 }
             }
         });
@@ -38,4 +48,4 @@ class FooterComponent {
     }
 }
 
-export const FOOTER = new FooterComponent();
+export const FOOTER = new FooterComponent(); //registered in MainComponent.js

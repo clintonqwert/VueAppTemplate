@@ -22,7 +22,7 @@ class SidebarComponent {
             <aside id="sidebar-wrapper" class="grid-side area">
                 <div id="sidebar-container" class="sidebar flexbox">
                     <div class="flexitem">
-                        <h2>MY SIDEBAR</h2>
+                        <h2>{{ title }}</h2>
                     </div>
                 </div>
             </aside>
@@ -30,7 +30,17 @@ class SidebarComponent {
     
             data(){
                 return{
-                   
+                   title:'SIDEBAR'
+                }
+            },
+
+            methods: {
+                myFunc () {
+
+                }, 
+                
+                fooFunc() {
+
                 }
             }
         });
@@ -38,4 +48,4 @@ class SidebarComponent {
     }
 }
 
-export const SIDEBAR = new SidebarComponent();
+export const SIDEBAR = new SidebarComponent(); //registered in MainComponent.js
