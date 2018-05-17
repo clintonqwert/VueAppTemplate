@@ -20,6 +20,7 @@ class SketchfabViewerSubCompo {
             template: 
             `
             <div>
+                <h3>{{ title }}</h3>
                 <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                     <br>
                     <button id='model' v-on:click="loadModel">Click me to load model and show iframe.</button>
@@ -29,6 +30,7 @@ class SketchfabViewerSubCompo {
 
             data() {
                 return {
+                    title: 'SKETCHFAB VIEWER DEMO',
                     urlId: ''
                 }
             },
@@ -64,4 +66,4 @@ class SketchfabViewerSubCompo {
     }
 }
 
-export const SKETCHFAB = new SketchfabViewerSubCompo();
+export const SKETCHFAB = new SketchfabViewerSubCompo(); //import and register this const to whichever component

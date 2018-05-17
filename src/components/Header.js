@@ -29,9 +29,19 @@ class HeaderComponent {
             </header>
             `,
     
-            data(){
+            data(){ //for every component in vue, data is in a form of function, not to be confused with vue root's data (in a form of object)
                 return{
                     title: 'HEADER'
+                }
+            },
+
+            methods: { 
+                myFunc () {
+
+                }, 
+                
+                fooFunc() {
+
                 }
             }
         });
@@ -39,4 +49,4 @@ class HeaderComponent {
     }
 }
 
-export const HEADER = new HeaderComponent();
+export const HEADER = new HeaderComponent(); //registered in MainComponent.js

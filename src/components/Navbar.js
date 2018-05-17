@@ -38,10 +38,20 @@ class NavbarComponent {
                 return{
                    
                 }
+            },
+
+            methods: { 
+                myFunc () {
+
+                }, 
+                
+                fooFunc() {
+
+                }
             }
         });
         
     }
 }
 
-export const NAVBAR = new NavbarComponent();
+export const NAVBAR = new NavbarComponent(); //registered in MainComponent.js

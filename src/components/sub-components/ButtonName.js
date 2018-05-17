@@ -18,20 +18,24 @@ class ButtonSubCompo {
         Vue.component('button-name', {
             template: 
             `
-            <p>Hey there, I am {{ name }}. 
-                <button v-on:click="changeName">Change Name</button>
-            </p>
+            <div>
+                <h3>{{ title }}</h3>
+                <p>Hey there, I am {{ name }}. 
+                    <button v-on:click="changeName">Change Name</button>
+                </p>
+            </div>
             `,
 
             data() {
                 return {
-                    name: "Clinton"
+                    title: 'BUTTON COMPONENT DEMO',
+                    name: "Jane Doe"
                 }
             },
 
             methods: {
                 changeName () {
-                    this.name = "Ton";
+                    this.name = "Richard Roe";
                 }
             }
         })
@@ -39,4 +43,4 @@ class ButtonSubCompo {
     }
 }
 
-export const NAMEBTN = new ButtonSubCompo();
+export const NAMEBTN = new ButtonSubCompo(); //import and register this const to whichever component
