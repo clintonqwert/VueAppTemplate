@@ -13,7 +13,10 @@ All Rights Reserved.
  */
 'use strict';
 
-import { NAMEBTN } from "../components/sub-components/ButtonName.js";
+//registering our sub component called <button-name></button-name>
+import { NAMEBTN } from "../components/sub-components/ButtonName.js"; //<button-name></button-name>
+import { PRODUCTFORM } from "../components/sub-components/ProductForm.js"; //<product-form></product-form>
+import { SKETCHFAB } from "../components/sub-components/SketchfabViewer.js"; //<sketchfab-viewer></sketchfab-viewer>
 
 class ContentComponent {
 
@@ -45,39 +48,18 @@ class ContentComponent {
 								<h3>{{ form }}</h3>
 								<div id='intro-screen'>
                                     
-									<form id='product-form' @submit.prevent ='onSubmit'>
-										<label>Product: </label>
-										<input type='text'   name='product-name' v-model = 'product' />
-                                        <br>
-                                        <label > Product Description: </label>
-                                        <input type='text' name='product-description' v-model = 'description' />
-                                        <br>
-                                        <input type='submit' name='product-description' value = 'Submit' />
-                                        
-                                        <!-- Dynamic updates here -->
-                                        <div>
-                                            <h3>Results Area: Dynamic Updates here!</h3>
-                                            <p v-text = '$data.response'></p>
-                                        </div>
-                                        
-                                    </form>
-                                    
+									<product-form></product-form>
                                     
                                     <button-name></button-name>
                                     <button-name></button-name>
                                     
-                                    
- 
 								</div>
 
 							</div>
 						</div>
 
                         <div class="grid-results area-child" id='sketch-fab'>
-                            <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-							<br>
-                            <button id='model' v-on:click='loadModel'>Click me to load model and show iframe.</button>
-                                <input v-model = "urlId" placeholder="<3D Model URL>">
+                            <sketchfab-viewer></sketchfab-viewer>
                         </div>
 
                     </div>

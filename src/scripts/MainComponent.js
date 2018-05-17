@@ -13,6 +13,7 @@ All Rights Reserved.
  */
 'use strict';
 
+//This is were we register every components that is instantiated in this Main Root Component.
 import { HEADER } from '../components/Header.js'
 import { NAVBAR } from '../components/Navbar.js'
 import { SIDEBAR } from '../components/Sidebar.js'
@@ -39,6 +40,7 @@ class AppMainComponent {
         });
     }
 
+    //init() gets triggered in our main.js, this created the very root of our vue application. 
     init(){
         var vm = new Vue({ 
             el: '#app',
