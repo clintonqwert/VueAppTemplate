@@ -1,14 +1,3 @@
-/*
-Title: vueapp.
-
-Created on Mon May 3 2018.
-
-Author: Clinton Jay Ramonida. 
-
-Copyright (c) 2018.
-All Rights Reserved.
- */
-
 //Our 'product-form' root that handles Ajax call to our own simple PHP server. 
 new Vue({
     el:'#product-form', //the "id" that bind this root to our html. 
@@ -21,7 +10,7 @@ new Vue({
 
     methods:{ // "methods: " is a vue object that can be access in our html (@submit.prevent ='onSubmit')
         onSubmit(){
-            //***ajax post with axios***
+            //  ***ajax post with axios***
             const url = 'server/simple_server.php';
             const params = new URLSearchParams();
             params.append('action', 'validate');
@@ -80,43 +69,3 @@ new Vue({
         }
     }
 })
-
-/* ***Few ways of posting an Ajax*** */
-
-//import { HTTP } from "../scripts/http.js";
-
-/* let params = {
-    //method: "POST",
-    //headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    action: 'validate',
-    product: this.$data.product,
-    description: this.$data.description
-} */
-
-/* HTTP.post( url, params)
-    .then( ( data ) => { 
-        console.log(1, 'success', JSON.parse( data )); 
-}); */
-
-
-/* fetch(url, params)
-    .then((res) => {
-        let data = res['data'];
-        console.log(data);
-});  */
-
-/*  //***fetch with await/async***
-const server = "server/simple_server.php";
-let payload = {
-    action: "validate",
-    data: this.$data
-}
-
-return async dispatch =>{
-    try {
-        const response = await fetch(server, payload)
-        console.log(response)
-    }catch (e) {
-        console.log(e)
-    }
-} */
