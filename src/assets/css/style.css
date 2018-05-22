@@ -188,15 +188,13 @@ h2 {
 
 h3{ /* not a flex item */
     margin: 5px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rebeccapurple;
+    text-align: center;
 }
 
 h4{
-    margin: 2px;
+    margin: 5px;
     border-style: solid;
-    border-width: 3px;
+    border-width: .5px;
     border-color: rgb(14, 119, 168);
 }
 

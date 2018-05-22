@@ -44,7 +44,7 @@ class ProductFormSubCompo {
             data() { 
                 return {
                     title: 'PRODUCTS FORM DEMO',
-                    results: 'FORM RESULTS AREA!',
+                    results: 'FORM RESULTS AREA:',
                     product: '',
                     description: '',
                     response: '', 
