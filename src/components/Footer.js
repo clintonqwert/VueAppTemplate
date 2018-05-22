@@ -19,7 +19,7 @@ class FooterComponent {
         Vue.component("app-footer", {
             template: 
             `
-            <footer id="footer-wrapper" class="grid-foot area">
+            <footer id="footer-wrapper" class="grid-foot area vue-component">
                 <div id="footer-container" class="footer flexbox">
                     <div class="flexitem">
                         <h1>{{ title }}</h1>

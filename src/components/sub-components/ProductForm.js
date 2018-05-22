@@ -19,30 +19,36 @@ class ProductFormSubCompo {
         Vue.component('product-form', {
             template: 
             `
-            <form id='product-form' @submit.prevent ='onSubmit'>
-                <label>Product: </label>
-                <input type='text'   name='product-name' v-model = 'product' />
-                <br>
-                <label > Product Description: </label>
-                <input type='text' name='product-description' v-model = 'description' />
-                <br>
-                <input type='submit' name='product-description' value = 'Submit' />
+            <div class='vue-sub-component'>
+                <h3>{{ title }}</h3>
                 
-                <!-- Dynamic updates here -->
-                <div>
-                    <h3>{{ title }}</h3>
-                    <p v-text = '$data.response'></p>
-                </div>
+                <form id='product-form' @submit.prevent ='onSubmit'>
+                    <label>Product: </label>
+                    <input type='text'   name='product-name' v-model = 'product' />
+                    <br>
+                    <label > Product Description: </label>
+                    <input type='text' name='product-description' v-model = 'description' />
+                    <br>
+                    <input type='submit' name='product-description' value = 'Submit' />
+                    
+                    <!-- Dynamic updates here -->
+                    <div>
+                        <h4>{{ results }}</h4>
+                        <p v-text = '$data.response'></p>
+                    </div>
+                </form>
+            </div>
                 
-            </form>
             `,
 
             data() { 
                 return {
-                    title: 'PRODUCTS FORM Results Area: ',
+                    title: 'PRODUCTS FORM DEMO',
+                    results: 'FORM RESULTS AREA:',
                     product: '',
                     description: '',
-                    response: ''
+                    response: '', 
+                    error: ''
                 }
             },
 
@@ -50,6 +56,7 @@ class ProductFormSubCompo {
                 onSubmit(){
                     //  ***ajax post with axios***
                     const url = 'src/server/simple_server.php';
+
                     const params = new URLSearchParams();
                     params.append('action', 'validate');
                     params.append('product', `${this.product}`);
@@ -60,10 +67,7 @@ class ProductFormSubCompo {
                     }
                     
                     axios.post(url, params, config )
-                        .then( (response) =>{
-                            this.response = response.data ;
-                            
-                        });  
+                        .then( (response) =>{   this.response = response.data;  });
                 }
             }
         })

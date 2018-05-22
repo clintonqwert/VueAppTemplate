@@ -16,7 +16,8 @@ All Rights Reserved.
 //registering our sub component called <button-name></button-name>
 import { NAMEBTN } from "../components/sub-components/ButtonName.js"; //<button-name></button-name>
 import { PRODUCTFORM } from "../components/sub-components/ProductForm.js"; //<product-form></product-form>
-import { SKETCHFAB } from "../components/sub-components/SketchfabViewer.js"; //<sketchfab-viewer></sketchfab-viewer>
+import { SKETCHFAB } from "../components/sub-components/SketchfabViewer.js"; //<sketchfab-viewer></sketchfab-viewer>\
+import { SERVERSIDEHTML } from "../components/sub-components/ServerSideHtml.js"; //<server-side-html></server-side-html>
 
 class ContentComponent {
 
@@ -25,7 +26,7 @@ class ContentComponent {
         Vue.component("app-content", {
             template:
             `
-            <main id="content-wrapper" class="grid-content area">
+            <main id="content-wrapper" class="grid-content area vue-component">
                 <div id="content-container" class="content flexbox">
                     <!-- Add your HTML5 tags here to structure your app's UI -->
 
@@ -44,16 +45,15 @@ class ContentComponent {
                     <div id="results-gridbox" class="grid-frame-child">
 						<div class="grid-forms area-child">
 							<div id='game-screen'>
-
-								<h3>{{ form }}</h3>
 								<div id='intro-screen'>
                                     
 									<product-form></product-form>
                                     
                                     <button-name></button-name>
+
+                                    <server-side-html></server-side-html>
                                     
 								</div>
-
 							</div>
 						</div>
 
@@ -70,8 +70,7 @@ class ContentComponent {
     
             data(){
                 return{
-                    title: 'CONTENT',
-                    form: 'PRODUCTS DEMO FORM'
+                    title: 'CONTENT'
                 }
             },
 

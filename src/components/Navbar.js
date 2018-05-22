@@ -20,7 +20,7 @@ class NavbarComponent {
         Vue.component("app-navbar", {
             template: 
             `
-            <nav id="navigation-wrapper" class="grid-nav area">
+            <nav id="navigation-wrapper" class="grid-nav area vue-component">
                 <div id="menu-container" class="menu flexbox">
                     <div class="flexitem">
                         <ul>

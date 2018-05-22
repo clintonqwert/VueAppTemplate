@@ -19,7 +19,7 @@ class SketchfabViewerSubCompo {
         Vue.component('sketchfab-viewer', {
             template: 
             `
-            <div>
+            <div class='vue-sub-component'>
                 <h3>{{ title }}</h3>
                 <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                     <br>

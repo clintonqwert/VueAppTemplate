@@ -19,7 +19,7 @@ class SidebarComponent {
         Vue.component("app-sidebar", {
             template: 
             `
-            <aside id="sidebar-wrapper" class="grid-side area">
+            <aside id="sidebar-wrapper" class="grid-side area vue-component">
                 <div id="sidebar-container" class="sidebar flexbox">
                     <div class="flexitem">
                         <h2>{{ title }}</h2>

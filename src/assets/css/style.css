@@ -23,7 +23,7 @@ body {
     grid-template: 
     [row1-start] "navbar navbar navbar navbar navbar navbar" 50px [row1-end]
     [row2-start] "headbar headbar headbar headbar headbar headbar" 150px [row2-end]
-    [row3-start] ". sidecontent thecontent thecontent thecontent ." 800px [row3-end]
+    [row3-start] ". sidecontent thecontent thecontent thecontent ." 1000px [row3-end]
     [row4-start] "footcontent footcontent footcontent footcontent footcontent footcontent" 80px [row4-end];
 }
 
@@ -61,7 +61,7 @@ body {
 .grid-frame-child {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, 150px [row-start]);
+    grid-template-rows: repeat(4, 200px [row-start]);
 }
 
 /* GRID AREA FOR "GRID CONTAINER CHILD" */
@@ -188,9 +188,34 @@ h2 {
 
 h3{ /* not a flex item */
     margin: 5px;
+    text-align: center;
+}
+
+h4{
+    margin: 5px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: rgb(14, 119, 168);
+}
+
+.vue-main-rootcomponent{
     border-style: solid;
     border-width: 3px;
-    border-color: rosybrown;
+    border-color: rgb(143, 3, 3);
+}
+
+.vue-component{
+    margin: 5px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(3, 116, 18);
+}
+
+.vue-sub-component{
+    margin: 5px;
+    border-style: dashed;
+    border-width: 3px;
+    border-color: rgb(45, 180, 4);
 }
         
 #api-frame {

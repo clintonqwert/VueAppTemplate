@@ -27,6 +27,10 @@ class Server /* extends ajax_server */ {
                     $response = $this->do_validate( $_POST );
                     break;
 
+                case "html":
+                $response = $this->do_get_html( $_POST );
+                break;
+
                 default:
                     $response = $this->is_error( "Error: 101 - Invalid action." );
                     break;
@@ -90,6 +94,15 @@ class Server /* extends ajax_server */ {
         $response = [];
 
         // Respond to the client with a JSON string containing attrib => value pairs encoded
+        return $response;
+    }
+
+    private function do_get_html( $request ) {
+        $html = 
+        "   <h4>Server Side HTML5 bit</h4>   ";
+        
+        $response = $html;
+        
         return $response;
     }
 }
