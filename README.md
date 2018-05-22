@@ -21,6 +21,10 @@ This HTML5 App also uses CSS3 Grid Layouts with Flexbox.
 ## Getting Started
 In this application, the use of components is an imitation of vue's "single page component" or "SPC". But due to the reliance of SPC to modules (webpack, npm, etc..), the workaround of this app's components is represented as javascript class objects which takes in Vue's "Vue.component" in the constructor. 
 
+All the components have color coded borders: 
+* MainRootComponent = Red solid border 
+* Components = Green solid border
+* Sub-Components = Light Green dashed border
 ### Main Component
 MainComponent.js behaves a bit differently for it is a Vue.component but also has a Vue Root, all components declared in this component is declared globally.  
 

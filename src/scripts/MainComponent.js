@@ -25,7 +25,7 @@ class AppMainComponent {
         Vue.component("app", {
             template: 
             `
-            <div class="grid-frame">
+            <div class="grid-frame vue-main-rootcomponent">
                 <app-header></app-header>
 
                 <app-navbar></app-navbar>
