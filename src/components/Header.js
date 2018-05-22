@@ -20,7 +20,7 @@ class HeaderComponent {
         Vue.component("app-header", {
             template: 
             `
-            <header id="header-wrapper" class="grid-header area">
+            <header id="header-wrapper" class="grid-header area vue-component">
                 <div id="header-container" class="header flexbox">
                     <div class="flexitem">
                         <h1>{{ title }}</h1>

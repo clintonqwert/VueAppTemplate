@@ -18,7 +18,7 @@ class ButtonSubCompo {
         Vue.component('button-name', {
             template: 
             `
-            <div>
+            <div class='vue-sub-component'>
                 <h3>{{ title }}</h3>
                 <p>Hey there, I am {{ name }}. 
                     <button v-on:click="changeName">Change Name</button>
