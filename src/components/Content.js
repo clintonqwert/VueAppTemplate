@@ -29,7 +29,6 @@ class ContentComponent {
             <main id="content-wrapper" class="grid-content area vue-component">
                 <div id="content-container" class="content flexbox">
                     <!-- Add your HTML5 tags here to structure your app's UI -->
-
                     <div class="flexitem">
                         <h2>{{ title }}</h2>
                     </div>
@@ -37,11 +36,11 @@ class ContentComponent {
                     <!-- Added a spacer between(main content header and results gridbox) two flex items -->
                     <div class="spacer flexitem"></div>
                     
-                    <!--       ****PLEASE READ****
-                        This is div called a "gridbox" which is a combination of grid and flexbox.
-                        Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper") 
-                        Its a flex item because its inside a flexbox container (content-container). 
-                     -->
+                    <!--                    ****PLEASE READ****
+                    This is div called a "gridbox" which is a combination of grid and flexbox.
+                    Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper") 
+                    Its a flex item because its inside a flexbox container (content-container). 
+                    -->
                     <div id="results-gridbox" class="grid-frame-child">
 						<div class="grid-forms area-child">
 							<div id='game-screen'>
@@ -56,13 +55,10 @@ class ContentComponent {
 								</div>
 							</div>
 						</div>
-
                         <div class="grid-results area-child" id='sketch-fab'>
                             <sketchfab-viewer></sketchfab-viewer>
                         </div>
-
                     </div>
-
                 </div>
 			</main>
 

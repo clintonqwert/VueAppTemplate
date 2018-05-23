@@ -19,7 +19,7 @@ This HTML5 App also uses CSS3 Grid Layouts with Flexbox.
     - [Authors](#authors)
     - [License](#license)
 ## Getting Started
-In this application, the use of components is an imitation of vue's "single page component" or "SPC". But due to the reliance of SPC to modules (webpack, npm, etc..), the workaround of this app's components is represented as javascript class objects which takes in Vue's "Vue.component" in the constructor. 
+In this application, the use of components is an imitation of Vue's "single page component" or "SPC". I say an imitation because due to the reliance of SPCs to "dependencies"/"modules" (webpack, npm, etc..), I've created a workaround of this app's components. It is represented as javascript class objects which takes in Vue's "Vue.component" in the constructor. 
 
 All the components have color coded borders: 
 * MainRootComponent = Red solid border 
@@ -96,10 +96,11 @@ MainComponent.js behaves a bit differently for it is a Vue.component but also ha
 * And each CSS Flexbox "container" contains "flexitems".  
 ## Deployment
 This application runs on a Apache Web Server. 
-Simply drop the this project folder to your WebServer folder. 
+Simply drop the this project folder to your WebServer folder and access your Server's domain. 
 ## Built With
 * **Vue.js 2.0** - The web framework used. 
 * **Axios.js** - Promise based HTTP client used for AJAX. 
+* **Php 7** - Back-end server.
 * **CSS Grid** - Used for this application's main styling structure. 
 * **CSS Flexbox** - Used as a sub structure and supports this application's styling. 
 ## Authors
