@@ -22,6 +22,7 @@ class ServerSideHtml {
             <div class='vue-sub-component'>
                 <h3>{{ title }}</h3>
                 <button v-on:click="getHtmlBit" >Get HTML bit from PHP Server</button>
+                <input type='text' v-model = 'htmlTemplate' />
                 <div v-html="rawHTML"></div>
             </div>
             `,
@@ -29,7 +30,8 @@ class ServerSideHtml {
             data() { 
                 return {
                     title: 'SERVER SIDE HTML DEMO',
-                    rawHTML: ''
+                    rawHTML: '',
+                    htmlTemplate: ''
                 }
             },
 
@@ -40,6 +42,8 @@ class ServerSideHtml {
 
                     const params = new URLSearchParams();
                     params.append('action', 'html');
+                    params.append('htmlTemplate', `${this.htmlTemplate}`);
+                    
         
                     let config = {
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }

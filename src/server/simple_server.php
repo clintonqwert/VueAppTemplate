@@ -79,12 +79,6 @@ class Server /* extends ajax_server */ {
 
         $response = "The Product: " . $request['product'] . ". Description: " . $request['description'] . ".";
 
-        //$product = $request['product'];
-        //$description = $request['description'];
-
-        //$response["data"] = $product;
-        
-        // Respond to the client with a JSON string containing attrib => value pairs encoded
         return $response;
     }
 
@@ -98,10 +92,20 @@ class Server /* extends ajax_server */ {
     }
 
     private function do_get_html( $request ) {
-        $html = 
-        "   <h4>Server Side HTML5 bit</h4>   ";
+
+        $path = dirname(__FILE__) . "\partials\\";
+        $htmlTemplate = $request['htmlTemplate'] . '.html';
         
-        $response = $html;
+        $template = $path . $htmlTemplate ;
+        $markup = $template;
+
+        if(file_exists($template)){
+            $markup = file_get_contents( $template );
+        }else{
+            $markup = "Html in './partials', does not exist.";
+        }
+
+        $response = $markup;
         
         return $response;
     }
