@@ -1,5 +1,8 @@
 # VueAppTemplate
 
+> **Archived.** I created this repository in 2018 and no longer maintain it. My current work is at [clintonramonida.ca](https://clintonramonida.ca) and [github.com/clintonqwert](https://github.com/clintonqwert).
+
+
 Base template for HTML5/CSS3 app using latest ES2017 JavaScript on Vue.js framework.   
 This HTML5 App template is ES2015+ compliant, will run in all browsers natively without the need for any "compiler" or 3rd party pre-processing solution (Babel, Node, Broswerify, etc NOT required).
 
